@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+button:focus
+{
+  border:none;
+  outline: none;
+}
+body
+{
+  color:black;
+}
