@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-const initialState = [
-  {
+const initialState = {
+  tasks:[{
     name: "Perform Launch",
     taskList: [
       {
@@ -19,10 +19,18 @@ const initialState = [
         ],
         status:"Todo",
       },
+      {
+        name: "Build Settings UI",
+        subtasks: [
+          {name: "Account Page",isDone: false},
+          {name: "Billing Page",isDone: true,},
+        ],
+        status:"Done",
+      },
     ],
   },
   {
-    name: "Perform Launch",
+    name: "Perform Launch 2",
     taskList: [
       {
         name: "Build Settings UI",
@@ -41,15 +49,16 @@ const initialState = [
         status:"Todo",
       },
     ],
-  },
-]
+  }],
+  columns:["Todo","Doing","Done"]
+}
 const tasksSlice=createSlice({
     name:"tasks",
     initialState,
     reducer:{
         addTask:(state,payload)=>{
             const newTask={...payload}
-            state.push(newTask)
+            state.tasks.push(newTask)
         }
     }
 })

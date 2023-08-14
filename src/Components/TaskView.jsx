@@ -1,18 +1,17 @@
 import { Box, Grid, Typography,Button } from '@mui/material'
-import React from 'react'
 import { useSelector } from 'react-redux'
 import Tasks from './Tasks';
+import { TabPanel } from '@mui/lab';
+import TaskDiv from './TaskDiv';
 
 const TaskView = () => {
-  const tasks=useSelector((state)=>state.tasks);
-  // console.log(tasks)
+  const tasks=useSelector((state)=>state.tasks.tasks);
+  const tabState=useSelector((state)=>state.tab);
   return (
     <Box sx={{marginTop:"3vh"}}>
-    {/* <Grid container direction={"column"} lg={3}>
-      {tasks.map((item,index)=>{
-        return <Tasks key={index} tasks={item.taskList} />
-      })}
-    </Grid> */}
+    {tasks.map((boards,index)=>{
+      return <TaskDiv key={index}  value={index} board={boards} />
+    })}
     </Box>
   )
 }

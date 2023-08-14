@@ -3,14 +3,21 @@ import './App.css'
 import Navbar from './Components/Navbar'
 import store from './redux/store.js'
 import TaskView from './Components/TaskView'
-
+import {useState} from "react"
+import {TabContext} from "@mui/lab"
+import {useSelector} from "react-redux";
 function App() {
-
+  // const [tabState,setTab]=useState(0);
+  const tabState=useSelector((state)=>state.tab)
+  console.log("tabstate from app"+tabState)
   return (
     <>
     <Provider store={store}>
-      <Navbar/>
+      <TabContext value={tabState}>
       <TaskView/>
+      <Navbar/>
+      </TabContext>
+     
     </Provider>
     </>
   )
