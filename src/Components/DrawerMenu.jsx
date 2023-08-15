@@ -19,7 +19,7 @@ const DrawerMenu = () => {
   }
  
   return (
-    <Drawer anchor='left' variant='persistent' PaperProps={{sx:{marginTop:"4%"}}} open={drawer} hideBackdrop={true} >
+    <Drawer anchor='left' variant='persistent' PaperProps={{sx:{marginTop:"4%"}}} open={drawer} hideBackdrop={true} onClose={()=>setCloseDrawer(false)} >
     {/* <TabContext value={tabState}> */}
         <TabList orientation='vertical'  onChange={handleTab}>
         {boards.map((item,index)=>(<Tab label={item.name} iconPosition='start' icon={<AutoAwesomeMosaicIcon/>} key={index} />))}
