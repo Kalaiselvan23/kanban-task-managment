@@ -17,6 +17,7 @@
     "@mui/lab": "^5.0.0-alpha.139",
     "@mui/material": "^5.14.4",
     "@reduxjs/toolkit": "^1.9.5",
+    "nanoid": "^4.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.1.2"

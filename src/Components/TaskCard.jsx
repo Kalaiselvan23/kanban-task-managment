@@ -12,6 +12,7 @@ import TaskModalContent from "./TaskModalContent";
 
 const TaskCard = (props) => {
   const task = props.task;
+  const boardId=props.boardId
   const [openModal, setOpenModal] = useState(false);
   const handleClick = () => {
     setOpenModal(true);
@@ -31,17 +32,17 @@ const TaskCard = (props) => {
               </Typography>
               <Typography
                 color={"GrayText"}
-                fontWeight={"semibold"}
+                fontWeight={"bold"}
                 sx={{ textAlign: "left" }}
               >
-                helloworld
+                {task.countofDone} of {task.subtasks.length} are done
               </Typography>
             </CardContent>
           </CardActionArea>
         </Card>
       </Grid>
       <Modal open={openModal} onClose={() => setOpenModal(false)}>
-        <TaskModalContent task={task} />
+        <TaskModalContent task={task} boardId={boardId} />
       </Modal>
     </>
   );

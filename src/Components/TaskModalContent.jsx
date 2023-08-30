@@ -1,11 +1,16 @@
 import { MoreVert } from '@mui/icons-material';
-import { Box, Card, CardContent, IconButton, List, ListItem, Typography } from '@mui/material'
+import { Box, Card, CardContent, IconButton, List,Typography } from '@mui/material'
 import TaskList from './TaskList';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 const TaskModalContent = (props) => {
     const name=props.task.name;
+    const boardId=props.boardId
     const subtasks=props.task.subtasks;
-    console.log(subtasks)
+    const countOfDone=subtasks.filter((task)=>{
+        return task.isDone==true
+    }).length;  
   return (
    <Card sx={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)",padding:"2%",width:"20vw"}}>
     <CardContent>
@@ -15,10 +20,12 @@ const TaskModalContent = (props) => {
        <IconButton><MoreVert/></IconButton>  
     </Box>
     <Box>
-        <Typography variant='body2'>hellwolr</Typography>
+        <Typography variant='body2'>
+        {countOfDone} of {subtasks.length} is done
+        </Typography>
         <List>
             {subtasks.map((task,index)=>{
-                return <TaskList task={task} key={index}/>
+                return <TaskList key={index} task={task} taskId={props.task.taskId} boardId={props.boardId} />
             })}
         </List>
     </Box>

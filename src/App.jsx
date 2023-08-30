@@ -9,13 +9,12 @@ import { useSelector } from "react-redux";
 function App() {
   // const [tabState,setTab]=useState(0);
   const tabState = useSelector((state) => state.tab);
-  console.log("tabstate from app" + tabState);
   return (
     <>
       <Provider store={store}>
         <TabContext value={tabState}>
           <TaskView />
-          <Navbar />
+          {/* <Navbar /> */}
         </TabContext>
       </Provider>
     </>
